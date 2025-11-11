@@ -40,6 +40,15 @@ zed_node:
     camera_timeout_sec: 5          # Camera connection timeout
     camera_max_reconnect: 5        # Maximum reconnection attempts
     
+    # Positional Tracking configuration
+    pos_tracking_enabled: true     # Enable positional tracking
+    pos_tracking_mode: 'GEN_3'     # Use GEN 3 algorithm (latest, more accurate)
+    imu_fusion: true               # Enable IMU fusion for better tracking
+    publish_tf: true               # Publish transform data
+    publish_map_tf: true           # Publish map transform
+    area_memory: true              # Enable area memory for loop closure
+    set_gravity_as_origin: true    # Align with gravity for better orientation
+    
     # Publishing configuration
     publish_rgb: true
     publish_depth: true
