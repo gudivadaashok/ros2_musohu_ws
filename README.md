@@ -74,3 +74,35 @@ Built and tested on:
 - **ROS2**: Humble
 - **OS**: Ubuntu (Jetson Linux)
 - **Date**: November 2025
+
+
+## Active ROS2 Topics
+
+Current active topics when all sensors are running:
+
+### **ZED Camera Topics**
+- `/zed2i/zed_node/rgb/color/rect/image/compressed` - RGB camera stream
+- `/zed2i/zed_node/depth/depth_registered/compressed` - Depth camera stream  
+- `/zed2i/zed_node/imu/data` - IMU sensor data
+- `/zed2i/zed_node/odom` - Visual odometry
+- `/zed2i/zed_node/pose` - Camera pose estimation
+
+### **Audio Processing Topics**
+- `/audio` - Main audio stream
+- `/audio/channel0-5` - Individual microphone channels
+- `/doa` - Direction of arrival estimation
+- `/speech_audio` - Speech detection
+- `/vad` - Voice activity detection
+
+### **LiDAR Topics**
+- `/rslidar_points` - Point cloud data from RS LiDAR
+
+### **IMU Topics**
+- `/imu_node/cali` 
+
+### **System Topics**
+- `/tf` & `/tf_static` - Transform data
+- `/diagnostics` - System diagnostics
+- `/rosout` - ROS logging
+
+Use `ros2 topic list` to see all currently active topics.
