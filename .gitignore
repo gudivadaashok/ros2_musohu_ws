@@ -1,0 +1,106 @@
+# ROS2 workspace gitignore
+
+# Build artifacts
+build/
+install/
+log/
+
+# Temporary files
+*.pyc
+*.pyo
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Backup files
+*~
+*.bak
+*.backup
+
+# Logs
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Colcon
+.colcon_install_layout
+
+# Rosbag files
+*.bag
+*.db3
+
+# Generated files
+*.bag.*
+*.mcap
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ROS
+*.orig
+*.rej
+.catkin_workspace
+
+# Custom additions for this workspace
+# Add any workspace-specific ignores here

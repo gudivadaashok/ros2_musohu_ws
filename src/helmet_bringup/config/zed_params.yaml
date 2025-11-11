@@ -1,0 +1,56 @@
+# ZED Camera Parameters
+zed_node:
+  ros__parameters:
+    # Camera configuration
+    camera_model: "zed2i"
+    camera_name: "zed2i"
+    
+    # Resolution and FPS - Reduced to improve reliability
+    resolution: 2  # 0=HD2K, 1=HD1080, 2=HD720, 3=VGA
+    fps: 15.0      # Reduced from 30 to 15 to reduce bandwidth and processing load
+    
+    # General settings for improved frame reliability
+    grab_resolution: 'HD720'      # Native resolution for grabbing
+    grab_frame_rate: 15           # Match fps for consistency
+    pub_frame_rate: 15.0          # Publishing frequency
+    enable_image_validity_check: 1 # Enable frame validation
+    
+    # Depth configuration
+    depth_mode: 1  # 0=NONE, 1=PERFORMANCE, 2=QUALITY, 3=ULTRA
+    depth_stabilization: true
+    depth_maximum_distance: 30.0  # meters
+    depth_minimum_distance: 0.1   # meters
+    
+    # Coordinate frames
+    camera_frame: "zed2i_camera_center"
+    left_camera_frame: "zed2i_left_camera_frame"
+    right_camera_frame: "zed2i_right_camera_frame"
+    depth_frame: "zed2i_depth_camera_frame"
+    
+    # Video settings for improved stability
+    auto_exposure_gain: true       # Use automatic exposure/gain
+    brightness: 4                  # Image brightness (0-8)
+    contrast: 4                    # Image contrast (0-8)
+    hue: 0                         # Image hue (0-11)
+    saturation: 4                  # Image saturation
+    sharpness: 4                   # Image sharpness
+    gamma: 8                       # Image gamma
+    
+    # USB/Connection timeout settings
+    camera_timeout_sec: 5          # Camera connection timeout
+    camera_max_reconnect: 5        # Maximum reconnection attempts
+    
+    # Publishing configuration
+    publish_rgb: true
+    publish_depth: true
+    publish_stereo: true
+    publish_cloud: false
+    publish_map_tf: false
+    
+    # Reduced publishing frequencies to minimize bandwidth stress
+    point_cloud_freq: 5.0          # Reduced from default 10Hz
+    sensors_pub_rate: 50.0         # Reduced from default 100Hz
+    
+    # Topic remapping
+    rgb_topic: "rgb/image_rect_color"
+    depth_topic: "depth/depth_registered"
