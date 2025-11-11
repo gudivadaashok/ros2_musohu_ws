@@ -98,7 +98,7 @@ Current active topics when all sensors are running:
 - `/rslidar_points` - Point cloud data from RS LiDAR
 
 ### **IMU Topics**
-- `/imu_node/cali` 
+- `/imu_node/cali` - IMU calibration data
 
 ### **System Topics**
 - `/tf` & `/tf_static` - Transform data
@@ -106,3 +106,60 @@ Current active topics when all sensors are running:
 - `/rosout` - ROS logging
 
 Use `ros2 topic list` to see all currently active topics.
+
+## 📦 Data Collection with ROS2 Bags
+
+### **Record All Sensor Data in One Bag**
+
+```bash
+# Create bags directory
+mkdir -p ~/helmet_bags
+cd ~/helmet_bags
+
+# Record all helmet sensor data for 60 seconds
+ros2 bag record -o helmet_complete_$(date +%Y%m%d_%H%M%S) \
+  /zed2i/zed_node/rgb/color/rect/image/compressed \
+  /zed2i/zed_node/depth/depth_registered/compressed \
+  /zed2i/zed_node/imu/data \
+  /zed2i/zed_node/odom \
+  /zed2i/zed_node/pose \
+  /audio \
+  /audio/channel0 /audio/channel1 /audio/channel2 /audio/channel3 /audio/channel4 /audio/channel5 \
+  /doa /speech_audio /vad \
+  /rslidar_points \
+  /imu_node/cali \
+  /tf /tf_static \
+  /diagnostics \
+  --max-bag-duration 60
+```
+
+### **Quick Recording Commands**
+
+```bash
+# Record everything for 30 seconds
+ros2 bag record -a -o helmet_all_data --max-bag-duration 30
+
+# Record only vision + transforms (smaller file)
+ros2 bag record -o helmet_vision \
+  /zed2i/zed_node/rgb/color/rect/image/compressed \
+  /zed2i/zed_node/depth/depth_registered/compressed \
+  /zed2i/zed_node/odom /zed2i/zed_node/pose \
+  /tf /tf_static
+
+# Record audio analysis only
+ros2 bag record -o helmet_audio \
+  /doa /speech_audio /vad /audio
+```
+
+### **Playback Recorded Data**
+
+```bash
+# List bag contents
+ros2 bag info helmet_complete_YYYYMMDD_HHMMSS
+
+# Play back recorded data
+ros2 bag play helmet_complete_YYYYMMDD_HHMMSS
+
+# Play at different speed
+ros2 bag play helmet_complete_YYYYMMDD_HHMMSS --rate 0.5  # Half speed
+```
