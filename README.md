@@ -106,3 +106,23 @@ Current active topics when all sensors are running:
 - `/rosout` - ROS logging
 
 Use `ros2 topic list` to see all currently active topics.
+
+### All ROS2 Topics Needed 
+
+```
+/audio
+/rslidar_points
+/speech_audio
+/vad
+/doa
+/tf
+/tf_static
+/imu_node/cali
+/zed2i/zed_node/depth/camera_info
+/zed2i/zed_node/depth/depth_registered/compressed
+/zed2i/zed_node/imu/data
+/zed2i/zed_node/odom
+/zed2i/zed_node/pose
+/zed2i/zed_node/rgb/color/rect/camera_info
+/zed2i/zed_node/rgb/color/rect/image/compressed
+```
